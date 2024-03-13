@@ -9,6 +9,7 @@ import { stripe } from "@/lib/stripe";
 import { GetStaticProps } from "next";
 import Stripe from "stripe";
 import Head from "next/head";
+import CartButton from "@/components/cart-button";
 
 interface HomeProps {
   products: {
@@ -40,8 +41,11 @@ export default function Home({ products }: HomeProps) {
               <Product className="keen-slider__slide">
                 <Image src={product.imageUrl} width={520} height={480} alt={product.name} />
                 <footer>
-                  <strong>{product.name}</strong>
-                  <span>{product.price}</span>
+                  <div>
+                    <strong>{product.name}</strong>
+                    <span>{product.price}</span>
+                  </div>
+                  <CartButton size="medium" color="light" onClick={() => null} />
                 </footer>
               </Product>
             </Link>
@@ -67,7 +71,7 @@ export const getStaticProps: GetStaticProps = async () => {
       price: new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
-      }).format((price.unit_amount as number)/100),
+      }).format((price.unit_amount as number) / 100),
     }
   })
 
