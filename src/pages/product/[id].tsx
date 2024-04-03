@@ -1,3 +1,4 @@
+import Button from "@/components/Button";
 import { stripe } from "@/lib/stripe";
 import { ImageContainer, ProductContainer, ProductDetails } from "@/styles/pages/product";
 import axios from "axios";
@@ -53,9 +54,12 @@ export default function Product({ product }: ProductProps) {
 
           <p>{product.description}</p>
 
-          <button disabled={isCreatingCheckouSession} onClick={handleBuyProduct}>
-            {isCreatingCheckouSession? 'Carregando...' : 'Comprar agora'}
-          </button>
+          <Button
+            title="Comprar agora"
+            loading={isCreatingCheckouSession}
+            disabled={isCreatingCheckouSession}
+            onClick={handleBuyProduct}
+          />
         </ProductDetails>
       </ProductContainer>
     </>
@@ -77,7 +81,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const product = await stripe.products.retrieve(productId, {
     expand: ['default_price'],
   });
-  
+
   const price = product.default_price as Stripe.Price;
 
   return {
