@@ -5,6 +5,7 @@ import logoImg from "../assets/logo.svg";
 import { Container, Header } from "@/styles/pages/app";
 import Image from "next/image";
 import CartButton from "@/components/cart-button";
+import CartModal from "@/components/cart-modal";
 
 globalStyles();
 
@@ -17,6 +18,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <CartButton counter={26} color="dark" size="small" onClick={() => null} />
       </Header>
       <Component {...pageProps} />
+
+      <CartModal  />
     </Container>
   );
 }
