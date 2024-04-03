@@ -4,14 +4,14 @@ import { Bag } from "@phosphor-icons/react";
 import { theme } from '@/styles';
 
 
-interface ButtonProps {
+interface CartButtonProps {
   onClick: VoidFunction;
   size?: 'small' | 'medium';
   color?: 'dark' | 'light';
   counter?: number;
 }
 
-export default function CartButton({ onClick, counter, color = 'light', size = 'small' }: ButtonProps) {
+export default function CartButton({ onClick, counter, color = 'light', size = 'small' }: CartButtonProps) {
   const iconSize = {
     small: '1.5rem',
     medium: '2rem',
