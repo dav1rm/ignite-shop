@@ -4,7 +4,7 @@ import { theme } from "@/styles";
 import { X } from "@phosphor-icons/react";
 import shirt1 from "@/assets/shirts/1.png"
 import Image from "next/image";
-import Button from "./Button";
+import Button from "./button";
 
 interface CartModalProps {
 }

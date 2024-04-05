@@ -10,7 +10,7 @@ interface ButtonProps {
 
 export default function Button({ onClick, disabled, loading, title }: ButtonProps) {
   return (
-    <Container onClick={onClick} disabled={disabled}>
+    <Container onClick={onClick} disabled={loading || disabled}>
       {loading? 'Carregando...' : title}
     </Container>
   );

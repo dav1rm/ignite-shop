@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/button";
 import { stripe } from "@/lib/stripe";
 import { ImageContainer, ProductContainer, ProductDetails } from "@/styles/pages/product";
 import axios from "axios";
