@@ -8,10 +8,15 @@ interface ButtonProps {
   loading?: boolean;
 }
 
-export default function Button({ onClick, disabled, loading, title }: ButtonProps) {
+export default function Button({
+  onClick,
+  disabled,
+  loading,
+  title,
+}: ButtonProps) {
   return (
     <Container onClick={onClick} disabled={loading || disabled}>
-      {loading? 'Carregando...' : title}
+      {loading ? 'Carregando...' : title}
     </Container>
   );
 }

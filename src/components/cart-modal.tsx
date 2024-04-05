@@ -1,13 +1,18 @@
-import React from "react";
-import { Container, ImageContainer, ProductItem } from "@/styles/components/cart-modal";
-import { theme } from "@/styles";
-import { X } from "@phosphor-icons/react";
-import shirt1 from "@/assets/shirts/1.png"
-import Image from "next/image";
-import Button from "./button";
+'use client';
+import React from 'react';
+import Image from 'next/image';
+import { X } from '@phosphor-icons/react';
 
-interface CartModalProps {
-}
+import {
+  Container,
+  ImageContainer,
+  ProductItem,
+} from '@/styles/components/cart-modal';
+import { theme } from '@/styles';
+import shirt1 from '@/assets/shirts/1.png';
+import Button from './button';
+
+interface CartModalProps {}
 
 export default function CartModal({}: CartModalProps) {
   return (
@@ -22,7 +27,7 @@ export default function CartModal({}: CartModalProps) {
       <section>
         <ProductItem>
           <ImageContainer>
-            <Image src={shirt1} width={94} height={94} alt="" />
+            <Image src={shirt1} width={94} height={94} alt='' />
           </ImageContainer>
 
           <div>
@@ -35,7 +40,7 @@ export default function CartModal({}: CartModalProps) {
 
         <ProductItem>
           <ImageContainer>
-            <Image src={shirt1} width={94} height={94} alt="" />
+            <Image src={shirt1} width={94} height={94} alt='' />
           </ImageContainer>
 
           <div>
@@ -48,7 +53,7 @@ export default function CartModal({}: CartModalProps) {
 
         <ProductItem>
           <ImageContainer>
-            <Image src={shirt1} width={94} height={94} alt="" />
+            <Image src={shirt1} width={94} height={94} alt='' />
           </ImageContainer>
 
           <div>
@@ -62,15 +67,15 @@ export default function CartModal({}: CartModalProps) {
 
       <footer>
         <div>
-            <small>Quantidade</small>
-            <span>3 itens</span>
+          <small>Quantidade</small>
+          <span>3 itens</span>
         </div>
         <div>
-            <b>Valor total</b>
-            <strong>R$ 79,90</strong>
+          <b>Valor total</b>
+          <strong>R$ 79,90</strong>
         </div>
 
-        <Button onClick={() => null} title="Finalizar compra" />
+        <Button onClick={() => null} title='Finalizar compra' />
       </footer>
     </Container>
   );

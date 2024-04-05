@@ -1,51 +1,51 @@
-import { styled } from "..";
+import { styled } from '..';
 
-export const Container = styled("aside", {
-  position: "absolute",
+export const Container = styled('aside', {
+  position: 'absolute',
   top: 0,
   right: 0,
   bottom: 0,
 
-  width: "30rem",
-  height: "100%",
-  backgroundColor: "$gray800",
+  width: '30rem',
+  height: '100%',
+  backgroundColor: '$gray800',
 
-  padding: "3rem 3rem 3rem",
-  paddingTop: "4.5rem",
-  display: "flex",
+  padding: '3rem 3rem 3rem',
+  paddingTop: '4.5rem',
+  display: 'flex',
   flex: 1,
-  flexDirection: "column",
+  flexDirection: 'column',
 
   header: {
-    marginBottom: "2rem",
+    marginBottom: '2rem',
 
     button: {
-      position: "absolute",
-      top: "1.5rem",
-      right: "1.5rem",
-      background: "transparent",
-      border: "none",
+      position: 'absolute',
+      top: '1.5rem',
+      right: '1.5rem',
+      background: 'transparent',
+      border: 'none',
 
-      "&:hover": {
-        cursor: "pointer",
+      '&:hover': {
+        cursor: 'pointer',
       },
     },
   },
 
   section: {
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
     flex: 1,
   },
 
   footer: {
-    display: "flex",
+    display: 'flex',
     flexDirection: 'column',
 
     div: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
 
       small: {
         fontSize: '$sm',
@@ -58,13 +58,13 @@ export const Container = styled("aside", {
       },
       strong: {
         fontSize: '$xl',
-        marginTop: "0.25rem",
-      }
+        marginTop: '0.25rem',
+      },
     },
 
     button: {
-      marginTop: "3.438rem",
-    }
+      marginTop: '3.438rem',
+    },
   },
 });
 
@@ -80,17 +80,17 @@ export const ImageContainer = styled('div', {
 
   img: {
     objectFit: 'cover',
-  }
+  },
 });
 
-export const ProductItem = styled("article", {
+export const ProductItem = styled('article', {
   display: 'flex',
   flexDirection: 'row',
-  marginBottom: "1.5rem",
-  gap: "1.25rem",
+  marginBottom: '1.5rem',
+  gap: '1.25rem',
 
   div: {
-    display: "flex",
+    display: 'flex',
     flex: 1,
     flexDirection: 'column',
   },
@@ -98,24 +98,24 @@ export const ProductItem = styled("article", {
   span: {
     fontSize: '$md',
     color: '$gray300',
-    marginBottom: "0.125rem",
+    marginBottom: '0.125rem',
   },
 
   strong: {
     fontSize: '$md',
     color: '$gray100',
-    marginBottom: "0.5rem",
+    marginBottom: '0.5rem',
   },
 
   button: {
-    width: "4rem",
-    height: "1.625rem",
-    backgroundColor: "transparent",
+    width: '4rem',
+    height: '1.625rem',
+    backgroundColor: 'transparent',
     border: 0,
     color: '$green500',
     fontSize: '$sm',
     fontWeight: 'bold',
-    textAlign: "start",
+    textAlign: 'start',
     cursor: 'pointer',
-  }
-})
+  },
+});

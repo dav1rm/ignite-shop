@@ -1,8 +1,7 @@
 import React from 'react';
+import { Bag } from '@phosphor-icons/react';
 import { Container } from '@/styles/components/cart-button';
-import { Bag } from "@phosphor-icons/react";
 import { theme } from '@/styles';
-
 
 interface CartButtonProps {
   onClick: VoidFunction;
@@ -11,7 +10,12 @@ interface CartButtonProps {
   counter?: number;
 }
 
-export default function CartButton({ onClick, counter, color = 'light', size = 'small' }: CartButtonProps) {
+export default function CartButton({
+  onClick,
+  counter,
+  color = 'light',
+  size = 'small',
+}: CartButtonProps) {
   const iconSize = {
     small: '1.5rem',
     medium: '2rem',

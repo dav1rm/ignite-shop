@@ -1,6 +1,6 @@
-import { styled } from "..";
+import { styled } from '..';
 
-export const Container = styled("button", {
+export const Container = styled('button', {
   marginTop: 'auto',
   backgroundColor: '$green500',
   border: 0,
@@ -18,5 +18,5 @@ export const Container = styled("button", {
 
   '&:not(:disabled):hover': {
     backgroundColor: '$green300',
-  }
+  },
 });

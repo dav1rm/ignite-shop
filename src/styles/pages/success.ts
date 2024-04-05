@@ -1,4 +1,4 @@
-import { styled } from "..";
+import { styled } from '..';
 
 export const SuccessContainer = styled('main', {
   display: 'flex',
@@ -9,13 +9,13 @@ export const SuccessContainer = styled('main', {
   height: 656,
 
   h1: {
-    fontSize: "$2xl",
-    color: "$gray100",
+    fontSize: '$2xl',
+    color: '$gray100',
   },
 
   p: {
-    fontSize: "$xl",
-    color: "$gray300",
+    fontSize: '$xl',
+    color: '$gray300',
     maxWidth: 560,
     textAlign: 'center',
     marginTop: '2rem',
@@ -32,8 +32,8 @@ export const SuccessContainer = styled('main', {
 
     '&:hover': {
       color: '$green300',
-    }
-  }
+    },
+  },
 });
 
 export const ImageContainer = styled('div', {
@@ -51,5 +51,5 @@ export const ImageContainer = styled('div', {
 
   img: {
     objectFit: 'cover',
-  }
+  },
 });
