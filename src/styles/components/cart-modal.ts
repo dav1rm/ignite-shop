@@ -19,7 +19,7 @@ export const Container = styled('aside', {
   header: {
     marginBottom: '2rem',
 
-    button: {
+    a: {
       position: 'absolute',
       top: '1.5rem',
       right: '1.5rem',

@@ -1,5 +1,7 @@
 import type { AppProps } from 'next/app';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 import { globalStyles } from '@/styles/global';
 import { Container, Header } from '@/styles/pages/app';
@@ -10,6 +12,9 @@ import logoImg from '../assets/logo.svg';
 globalStyles();
 
 export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+
   return (
     <Container>
       <Header>
@@ -18,7 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
           counter={26}
           color='dark'
           size='small'
-          onClick={() => null}
+          onClick={() => router.push(`${pathname}?modal=true`)}
         />
       </Header>
       <Component {...pageProps} />

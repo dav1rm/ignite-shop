@@ -1,6 +1,8 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { X } from '@phosphor-icons/react';
 
 import {
@@ -15,12 +17,20 @@ import Button from './button';
 interface CartModalProps {}
 
 export default function CartModal({}: CartModalProps) {
+  const searchParams = useSearchParams();
+  const modal = searchParams.get('modal');
+  const pathname = usePathname();
+
+  if (!modal) {
+    return;
+  }
+
   return (
     <Container>
       <header>
-        <button>
+        <Link href={pathname}>
           <X size={24} color={theme.colors.gray500.value} />
-        </button>
+        </Link>
         <h3>Sacola de compras</h3>
       </header>
 
