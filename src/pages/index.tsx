@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { useShoppingCart } from 'use-shopping-cart';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
@@ -16,11 +17,14 @@ interface HomeProps {
     id: string;
     name: string;
     imageUrl: string;
-    price: string;
+    formattedPrice: string;
+    price: number;
   }[];
 }
 
 export default function Home({ products }: HomeProps) {
+  const { addItem } = useShoppingCart();
+
   const [sliderRef] = useKeenSlider({
     slides: {
       perView: 3,
@@ -53,13 +57,16 @@ export default function Home({ products }: HomeProps) {
                 <footer>
                   <div>
                     <strong>{product.name}</strong>
-                    <span>{product.price}</span>
+                    <span>{product.formattedPrice}</span>
                   </div>
 
                   <CartButton
                     size='medium'
                     color='light'
-                    onClick={() => null}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      addItem(product, { count: 1 });
+                    }}
                   />
                 </footer>
               </Product>
@@ -83,10 +90,11 @@ export const getStaticProps: GetStaticProps = async () => {
       id: product.id,
       name: product.name,
       imageUrl: product.images[0],
-      price: new Intl.NumberFormat('pt-BR', {
+      formattedPrice: new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
       }).format((price.unit_amount as number) / 100),
+      price: price.unit_amount,
     };
   });
 

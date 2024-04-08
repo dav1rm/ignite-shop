@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
 import { Bag } from '@phosphor-icons/react';
 import { Container } from '@/styles/components/cart-button';
 import { theme } from '@/styles';
 
 interface CartButtonProps {
-  onClick: VoidFunction;
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
   size?: 'small' | 'medium';
   color?: 'dark' | 'light';
   showCounter?: boolean;
