@@ -13,6 +13,12 @@ export const SuccessContainer = styled('main', {
     color: '$gray100',
   },
 
+  section: {
+    marginTop: '4rem',
+    display: 'flex',
+    alignItems: 'center',
+  },
+
   p: {
     fontSize: '$xl',
     color: '$gray300',
@@ -37,19 +43,37 @@ export const SuccessContainer = styled('main', {
 });
 
 export const ImageContainer = styled('div', {
-  width: '100%',
-  maxWidth: 130,
-  height: 145,
+  position: 'relative',
+  width: 140,
+  height: 140,
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
-  borderRadius: 8,
+  borderRadius: '50%',
   padding: '0.25rem',
-  marginTop: '4rem',
 
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  boxShadow: '0px 0px 60px 0px rgba(0,0,0,0.8)',
 
   img: {
     objectFit: 'cover',
+  },
+
+  div: {
+    position: 'absolute',
+    top: 5,
+    left: 5,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: '$purple',
+    width: 30,
+    height: 30,
+    borderRadius: '50%',
+    fontWeight: 'bold',
+  },
+
+  '&:not(:first-child)': {
+    marginLeft: -30,
   },
 });

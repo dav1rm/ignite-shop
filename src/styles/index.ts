@@ -24,6 +24,7 @@ export const {
       green300: '#00b37e',
 
       red: '#D0342C',
+      purple: '#7465d4',
     },
 
     fontSizes: {
