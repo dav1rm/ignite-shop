@@ -19,6 +19,7 @@ interface HomeProps {
     imageUrl: string;
     formattedPrice: string;
     price: number;
+    priceId: string;
   }[];
 }
 
@@ -95,6 +96,7 @@ export const getStaticProps: GetStaticProps = async () => {
         currency: 'BRL',
       }).format((price.unit_amount as number) / 100),
       price: price.unit_amount,
+      priceId: price.id,
     };
   });
 
