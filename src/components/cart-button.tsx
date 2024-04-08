@@ -1,4 +1,5 @@
 import React from 'react';
+import { useShoppingCart } from 'use-shopping-cart';
 import { Bag } from '@phosphor-icons/react';
 import { Container } from '@/styles/components/cart-button';
 import { theme } from '@/styles';
@@ -7,15 +8,17 @@ interface CartButtonProps {
   onClick: VoidFunction;
   size?: 'small' | 'medium';
   color?: 'dark' | 'light';
-  counter?: number;
+  showCounter?: boolean;
 }
 
 export default function CartButton({
   onClick,
-  counter,
+  showCounter,
   color = 'light',
   size = 'small',
 }: CartButtonProps) {
+  const { cartCount } = useShoppingCart();
+
   const iconSize = {
     small: '1.5rem',
     medium: '2rem',
@@ -32,9 +35,9 @@ export default function CartButton({
 
   return (
     <Container onClick={onClick} color={color} size={size}>
-      {!!counter && (
+      {showCounter && !!cartCount && (
         <div>
-          <span>{counter}</span>
+          <span>{cartCount}</span>
         </div>
       )}
       <Bag size={iconSize[size]} color={style[color].icon.value} />
