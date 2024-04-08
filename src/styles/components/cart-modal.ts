@@ -17,6 +17,8 @@ export const Container = styled('aside', {
   flexDirection: 'column',
 
   header: {
+    display: 'flex',
+    justifyContent: 'space-between',
     marginBottom: '2rem',
 
     a: {
@@ -25,6 +27,17 @@ export const Container = styled('aside', {
       right: '1.5rem',
       background: 'transparent',
       border: 'none',
+
+      '&:hover': {
+        cursor: 'pointer',
+      },
+    },
+
+    button: {
+      background: 'transparent',
+      border: 'none',
+      fontWeight: 'bold',
+      color: '$red',
 
       '&:hover': {
         cursor: 'pointer',
