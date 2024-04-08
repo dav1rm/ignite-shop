@@ -1,8 +1,9 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
+import axios from 'axios';
 import { X } from '@phosphor-icons/react';
 import { useShoppingCart } from 'use-shopping-cart';
 
@@ -19,14 +20,37 @@ interface CartModalProps {}
 export default function CartModal({}: CartModalProps) {
   const { formattedTotalPrice, cartCount, cartDetails, removeItem, clearCart } =
     useShoppingCart();
+  const [isCreatingCheckouSession, setIsCreatingCheckoutSession] =
+    useState(false);
 
   const searchParams = useSearchParams();
   const modal = searchParams.get('modal');
   const pathname = usePathname();
   const quantityLabel = cartCount === 1 ? '1 item' : `${cartCount} itens`;
+  const cartItems = cartDetails ? Object.values(cartDetails) : [];
 
   if (!modal) {
     return;
+  }
+
+  async function handleBuyProduct() {
+    try {
+      setIsCreatingCheckoutSession(true);
+
+      const line_items = cartItems.map((item) => ({
+        price: item.priceId,
+        quantity: item.quantity,
+      }));
+      const response = await axios.post('/api/checkout', { line_items });
+
+      const { checkoutUrl } = response.data;
+
+      window.location.href = checkoutUrl;
+      clearCart();
+    } catch (error) {
+      setIsCreatingCheckoutSession(false);
+      console.log('Falha ao redirecionar ao checkout!', error);
+    }
   }
 
   function renderCartContent() {
@@ -59,6 +83,7 @@ export default function CartModal({}: CartModalProps) {
       </>
     );
   }
+
   return (
     <Container>
       <header>
@@ -82,7 +107,12 @@ export default function CartModal({}: CartModalProps) {
           <strong>{formattedTotalPrice}</strong>
         </div>
 
-        <Button onClick={() => null} title='Finalizar compra' />
+        <Button
+          onClick={handleBuyProduct}
+          loading={isCreatingCheckouSession}
+          disabled={cartItems.length < 1}
+          title='Finalizar compra'
+        />
       </footer>
     </Container>
   );
